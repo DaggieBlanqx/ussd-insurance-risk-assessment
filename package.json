@@ -1,0 +1,53 @@
+{
+  "name": "riskassessussd",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "prettier": "prettier --ignore-path .gitignore --write .",
+    "standard": "standard --verbose | snazzy",
+    "pretest": "npm run standard",
+    "prestandard": "npm run prettier; standard --fix"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "ms": "^2.1.3",
+    "signale": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.5",
+    "snazzy": "^9.0.0",
+    "standard": "^17.1.0"
+  },
+  "signale": {
+    "displayScope": true,
+    "displayBadge": true,
+    "displayDate": true,
+    "displayFilename": true,
+    "displayLabel": true,
+    "displayTimestamp": true,
+    "underlineLabel": true,
+    "underlineMessage": false,
+    "underlinePrefix": false,
+    "underlineSuffix": false,
+    "uppercaseLabel": false
+  },
+  "homepage": "https://github.com/daggieblanqx/ussd-insurance-risk-assessment",
+  "bugs": {
+    "url": "https://github.com/daggieblanqx/ussd-insurance-risk-assessment/issues",
+    "email": "daggieblanqx+github@gmail.com"
+  },
+  "author": "Daggie Douglas Mwangi <daggieblanqx@gmail.com> (https://daggie.blanqx.com/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggieblanqx/ussd-insurance-risk-assessment.git"
+  }
+}
