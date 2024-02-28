@@ -115,5 +115,5 @@ export const _riskQuestions = [
   },
 ];
 
-// return just 5 questions
+// return  a few questions for the USSD session
 export const riskQuestions = _riskQuestions.slice(0, 10);

@@ -52,14 +52,9 @@ function handleUssd(req, res) {
     // No more questions to ask
     const riskScore = calculateRiskScore(customerData.answers);
     outputText = `END Thank you for completing the risk assessment.\nYour risk score is ${riskScore}.\nWe will contact you shortly with your personalized insurance options.`;
-    customers.delete(phoneNumber);
   }
+  customers.delete(phoneNumber);
   return res.send(outputText);
-  // return res.send({
-  //   sessionId,
-  //   response: outputText,
-  //   responseType: "RESPONSE",
-  // });
 }
 
 // Function to calculate risk score based on user responses
