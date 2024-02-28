@@ -76,9 +76,9 @@ const calculateRiskScore = (answers) => {
 };
 
 router.post("/ussd", handleUssd);
-router.use('/',(req, res) => {
+router.use("/", (req, res) => {
   res.status(404).json({
     ping: "pong",
   });
-})
+});
 export default router;
