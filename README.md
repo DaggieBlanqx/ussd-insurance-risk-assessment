@@ -1,6 +1,7 @@
 # About Risk Assess USSD
 
-<img src="./assets/demo.gif" width="128"/>
+![demo.gif](./assets/demo.gif)
+
 
 Risk Assess USSD is a USSD application that allows users to assess their insurance risk and get a quote for their insurance policy.
 The application is built using the Africa's Talking USSD API.
