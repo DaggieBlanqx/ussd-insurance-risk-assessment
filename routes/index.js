@@ -53,7 +53,7 @@ function handleUssd(req, res) {
   } else {
     // No more questions to ask
     const riskScore = calculateRiskScore(customerData.answers);
-    outputText = `END Thank you for completing the risk assessment.\nYour risk score is ${riskScore}.\nWe will contact you shortly with your personalized insurance options.`;
+    outputText = `END Thank you for completing the risk assessment.\n\nYour risk score is #${riskScore}.\n\nWe will contact you shortly with your personalized insurance options.`;
   }
   customers.delete(phoneNumber);
   return res.send(outputText);
