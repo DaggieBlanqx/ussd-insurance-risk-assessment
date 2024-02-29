@@ -12,6 +12,7 @@ The customer also receives a follow-up SMS with the details of the insurance pol
 The application is built using Node.js and Express.js.
 
 # Prerequisites
+
 - Africa's Talking Account
 - An API Key from Africa's Talking
 - A USSD code (You can start with a free sandbox USSD code)
