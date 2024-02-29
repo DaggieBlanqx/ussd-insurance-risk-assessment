@@ -116,4 +116,4 @@ export const _riskQuestions = [
 ];
 
 // return  a few questions for the USSD session
-export const riskQuestions = _riskQuestions.slice(0, 10);
+export const riskQuestions = _riskQuestions.slice(0, 3);

@@ -52,3 +52,5 @@ Thumbs.db
 
 # Custom
 donotcommit/
+# Local Netlify folder
+.netlify

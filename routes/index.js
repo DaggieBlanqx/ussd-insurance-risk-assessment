@@ -8,26 +8,28 @@ const customers = new Map();
 
 // Function to handle customer data
 function handleCustomerData(phoneNumber, sessionId, answer) {
-  if (!customers.has(phoneNumber)) {
+  const customer = customers.get(sessionId);
+
+  if (!customer) {
     // This is a new customer
-    customers.set(phoneNumber, {
+    customers.set(sessionId, {
       sessionId,
       phoneNumber,
       currentQuestionIndex: 0,
       answers: [],
     });
+  } else {
+    // Update customer data
+    const customerData = customers.get(sessionId);
+    customers.set(sessionId, {
+      ...customerData,
+      sessionId,
+      currentQuestionIndex: customerData.currentQuestionIndex + 1,
+      answers: [...customerData.answers, answer],
+    });
   }
 
-  // Update customer data
-  const customerData = customers.get(phoneNumber);
-  customers.set(phoneNumber, {
-    ...customerData,
-    sessionId,
-    currentQuestionIndex: customerData.currentQuestionIndex + 1,
-    answers: [...customerData.answers, answer],
-  });
-
-  return customers.get(phoneNumber);
+  return customers.get(sessionId);
 }
 
 // Function to handle USSD requests
@@ -47,7 +49,7 @@ function handleUssd(req, res) {
 
   if (question) {
     // More questions to ask
-    outputText = `CON ${question}\n Reply with either:\n${options.join("\n ")}`;
+    outputText = `CON ${question}\n\n Reply with either:\n\n${options.join("\n ")}`;
   } else {
     // No more questions to ask
     const riskScore = calculateRiskScore(customerData.answers);
