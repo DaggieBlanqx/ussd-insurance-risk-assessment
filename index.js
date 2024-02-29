@@ -26,8 +26,8 @@ app.use("/", routes);
 
 // 404 Handler
 app.use((req, res) => {
-  res.status(404).json({
-    message: "Not found",
+  res.status(200).json({
+    ping: "pong",
   });
 });
 

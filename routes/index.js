@@ -1,5 +1,6 @@
 import express from "express";
 import { riskQuestions } from "../utils/index.js";
+import sendSMS from "../utils/sendsms.js";
 
 const router = express.Router();
 
@@ -53,7 +54,10 @@ function handleUssd(req, res) {
   } else {
     // No more questions to ask
     const riskScore = calculateRiskScore(customerData.answers);
-    outputText = `END Thank you for completing the risk assessment.\n\nYour risk score is #${riskScore}.\n\nWe will contact you shortly with your personalized insurance options.`;
+    const message = `Thank you for completing the risk assessment.\n\nYour risk score is #${riskScore}.\n\nWe will contact you shortly with your personalized insurance options.`;
+    outputText = `END ${message}`;
+
+    sendSMS({ phoneNumber, message });
   }
   customers.delete(phoneNumber);
   return res.send(outputText);
@@ -73,9 +77,4 @@ const calculateRiskScore = (answers) => {
 };
 
 router.post("/ussd", handleUssd);
-router.use("/", (req, res) => {
-  res.status(404).json({
-    ping: "pong",
-  });
-});
 export default router;

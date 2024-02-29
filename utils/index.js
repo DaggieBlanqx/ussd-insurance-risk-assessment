@@ -1,3 +1,5 @@
+import AfricasTalking from "africastalking";
+
 export const _riskQuestions = [
   {
     question: "Do you smoke cigarettes or use tobacco products?",
